@@ -35,7 +35,7 @@
   @csrf
     <tr>
       <th>name</th>
-      <td><input type="text" name="name"></td>
+      <td><input type="text" name="content"></td>
     </tr>
   
     <tr>
