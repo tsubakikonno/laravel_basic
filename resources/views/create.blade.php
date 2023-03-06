@@ -30,12 +30,13 @@
   @endforeach
 </ul>
 @endif
-<form action="/" method="get">
+<form action="/" method="get" action="">
+<form action="/delete" method="get" action="create">
   <table>
   @csrf
     <tr>
       <th>name</th>
-      <td><input type="text" name="contents"></td>
+      <td><input type="text" name="content"></td>
     </tr>
    
       <th></th>

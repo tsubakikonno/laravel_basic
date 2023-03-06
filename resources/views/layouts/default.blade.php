@@ -6,6 +6,7 @@
   <title>@yield('title')</title>
   <style>
     body {
+      background-color:#423880;
       font-size:16px;
       margin: 5px;
     }
@@ -16,9 +17,12 @@
       letter-spacing:-4px;
       margin-left: 10px
     }
-    .content {
-      margin:10px;
-    }
+    
+
+    div {
+      background: #ff0000;
+  width: 300px;
+}
   </style>
 </head>
 <body>

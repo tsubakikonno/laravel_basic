@@ -17,22 +17,31 @@
 @section('title', 'index.blade.php')
 
 @section('content')
-
-
-
-<form action="/create" method="post">
-@csrf
-  <table>
-    <tr>
-      <th>name</th> </tr>
-      <td><input type="text" name="content" ></td>
-      @foreach ($content as $contents)
-      <td>{{$contents->$contents}}</td>
-   
-    @endforeach
-    
-      <td><button>送信</button></td>
-    
-  </table>
+ 
+<table>
+   <form action="/create" method="post">
+        @csrf
+      
+      <th>name</th> 
+      <td><input type="text" name="content"></td>
+     <button class="A">送信</button>
 </form>
+      <td><tr>@foreach ($todos as $todo)</td></tr>
+     <td> <form action="/delete" method="get"></td>
+     @csrf
+      <td><input type="submit" name="delete"></td>
+      <td><button class="B">削除</button></td>
+</form>
+      
+    <form action="/update" method="get">
+      @csrf
+      <td><input type="submit" name="update"></td>
+      <td><button class="c">更新</button></td>
+      </form>
+<td>{{$todo->content}}</td>
+@endforeach
+    
+      
+  </table>
+
 @endsection
