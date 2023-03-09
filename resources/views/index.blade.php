@@ -1,46 +1,74 @@
 @extends('layouts.default')
 <style>
-  th {
-    background-color: #289ADC;
+  table {
+    background-color: #ffffff;
     color: white;
-    padding: 5px 40px;
+    margin:0 auto;
+    width: 900px;
+    height: auto;
   }
-  tr:nth-child(odd) td{
-    background-color: #FFFFFF;
+  
+  tr{
+   
   }
+
+  
+
+
+  
   td {
-    padding: 25px 40px;
-    background-color: #EEEEEE;
-    text-align: center;
+    
+    background-color: #ffffff;
+    
   }
 </style>
-@section('title', 'index.blade.php')
+
 
 @section('content')
  
 <table>
+@section('title', 'Todo List')
+
+
+
    <form action="/create" method="post">
         @csrf
-      
-      <th>name</th> 
-      <td><input type="text" name="content"></td>
-     <button class="A">送信</button>
-</form>
-      <td><tr>@foreach ($todos as $todo)</td></tr>
-     <td> <form action="/delete" method="get"></td>
+        
+     <tr><td><input type="text" size="100px," name="content"></td>
+     <td><button style="background-color:#ffffff; border-color:#bf7fff; color:#bf7fff;">追加</button></tr>
+     <tr><td><h1>作成日</h1></td></td><td><h2>タスク名</h2></td><td><h3>削除</h3></td><td><h4>更新</h4></td></tr>
+</form></td>
+
+
+
+
+      <tr><td>@foreach ($todos as $todo)</td></tr>
+     <td><tr> <form action="/delete" method="post"></tr></td>
      @csrf
-      <td><input type="submit" name="delete"></td>
-      <td><button class="B">削除</button></td>
+     
+      <td><input type="hidden" name="id" value="{{$todo}}"></td>
+      <td><button style="background-color:#ffffff; border-color:#7fffbf; color:#7fffbf;">削除</button></td>
+
+      
 </form>
       
-    <form action="/update" method="get">
+    <td><form action="/update" method="get">
       @csrf
-      <td><input type="submit" name="update"></td>
-      <td><button class="c">更新</button></td>
+      <input type="hidden" name="id" value="content"></td>
+      <td><button style="background-color:#ffffff; border-color:#ff7f7f; color:#ff7f7f;" >更新</button></td>
       </form>
-<td>{{$todo->content}}</td>
+
+      <form action="/edit" method="post">
+        @csrf
+      <td><input type ="text" name="id" value="{{$todo->content}}">
+   
+<tr><td>{{ $todo->created_at }}</td></tr>
+</form>
+
+
 @endforeach
-    
+     
+
       
   </table>
 

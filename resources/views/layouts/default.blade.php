@@ -8,27 +8,52 @@
     body {
       background-color:#423880;
       font-size:16px;
-      margin: 5px;
-    }
-    h1 {
-      font-size:60px;
-      color:white;
-      text-shadow:1px 0 5px #289ADC;
-      letter-spacing:-4px;
-      margin-left: 10px
+      margin:left;
     }
     
+    td {
+      background-color: #ffffff;
+      color: Black;
+      font-size: 20px;
+      
+    }
 
-    div {
-      background: #ff0000;
-  width: 300px;
-}
+    h1 {
+      color: Black;
+      font-size: 20px;
+    }
+
+    h2 {
+      color: Black;
+      font-size: 20px;
+    }
+
+    h3 {
+      color: Black;
+      font-size: 20px;
+
+    }
+
+
+
+    button {
+      border-radius:5px;
+      width: 5em;
+  height:3em;
+  padding:3px;
+    }
+
+    
+    
+
+    
+
   </style>
 </head>
-<body>
+<body><table>
   <h1>@yield('title')</h1>
   <div class="content">
     @yield('content')
-  </div>
+  </div></table>
 </body>
 </html>
