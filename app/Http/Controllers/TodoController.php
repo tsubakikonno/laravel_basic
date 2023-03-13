@@ -10,13 +10,16 @@ use Carbon\Carbon;
 class TodoController extends Controller
 {
     
-        public function index()
+       public function index()
+
         {
           $todos = Todo::all();
-          return view('index', ['todos' => $todos]);
-          
-        }
+          return view('index', ['todos' => $todos]
         
+        );
+
+
+        }
 
 
         public function create(TodoRequest $request)
@@ -34,22 +37,19 @@ class TodoController extends Controller
           
         }
 
-        public function edit (Request $todos)
-        {
-         
-          return view('index');
-        }
-
-
+        public function edit(Request $request)
+    {
+      $todos = Todo::find($request->todos);
+      return view('index', ['content' => $todos]);
+    }
 
 
         public function update(TodoRequest $request)
         {
-
-          $form = $request->all();
-    unset($form['_token']);
-    Author::where('id', $request->id)->update($form);
-    return redirect('/');
+       
+          $todos = $request->all();
+          Todo::where('id', $request->id)->update($todos);
+          return redirect('/')->update($todos);
          
         }
 }
