@@ -46,25 +46,22 @@
      <td><tr> <form action="/delete" method="post"></tr></td>
      @csrf
      
-      <td><input type="hidden" name="id" value="{{$todo}}"></td>
+      <td><input type="hidden" name="id" value="{{$todo->id}}"></td>
       <td><button style="background-color:#ffffff; border-color:#7fffbf; color:#7fffbf;">削除</button></td>
 
       
 </form>
       
-    <td><form action="/update" method="get">
+    <td><form action="/update" method="post">
       @csrf
-      <input type="hidden" name="id" value="content"></td>
+      <input type="hidden" name="id" value="{{$todos->id}}"></td>
       <td><button style="background-color:#ffffff; border-color:#ff7f7f; color:#ff7f7f;" >更新</button></td>
       </form>
 
-      <form action="/edit" method="post">
-        @csrf
+
       <td><input type ="text" name="id" value="{{$todo->content}}">
    
 <tr><td>{{ $todo->created_at }}</td></tr>
-</form>
-
 
 @endforeach
      
@@ -73,3 +70,4 @@
   </table>
 
 @endsection
+
